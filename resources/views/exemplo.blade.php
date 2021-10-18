@@ -3,17 +3,20 @@
 @section('nomeTela','Exemplo')
 @section('conteudo')
 <div class="container-fluid">
-    <router-link class="mr-2" to="/" exact>Cadastro Descrição</router-link>
-    <router-link to="/cad_operadora">Cadastro Operadora</router-link>
 
     <div class="row mt-5 ">
         <div class="col-md-12 ">
-            <div class="card ">
-                <div class="card-body">
+            <div class="card">
+                <div class="card-header">{{$o->exemplo}}</div>
 
-                    <router-view></router-view>
-                    <example-component />
+                <div class="card-body">
+                    <form action="teste" method="post">
+                        {{csrf_field()}}
+                        <input type="text" name="exemplo" value="exemplo" id="">
+                        <input type="submit" value="enviar">
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>

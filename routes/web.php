@@ -14,7 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 }); */
-Route::get('/{reu_codigo?}/{usu_codigo?}', ['as' => 'ExemploController', 'uses' => 'ExemploController@inicio']);
+
+Route::get('/', ['as' => 'ExemploController', 'uses' => 'ExemploController@inicio']);
+Route::post('/teste', function () {
+    echo $_POST['exemplo'];
+});
 
 /* Route::post('/dashboard/usuario/salvarRegistroUsuario', ['as' => 'dashboard.UsuarioController.salvarRegistroUsuario', 'uses' => 'dashboard\UsuarioController@salvarRegistroUsuario']);
 Route::get('/dashboard/usuario/excluirRegistroUsuario/{reu_codigo?}/{usu_codigo?}', ['as' => 'dashboard.UsuarioController.excluirRegistroUsuario', 'uses' => 'dashboard\UsuarioController@excluirRegistroUsuario']);
