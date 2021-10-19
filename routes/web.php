@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 }); */
 
-Route::get('/', ['as' => 'ExemploController', 'uses' => 'ExemploController@inicio']);
+Route::post('/salvarCiclovia', ['as' => 'CicloviaController', 'uses' => 'CicloviaController@salvar']);
+Route::get('/deletar/{id?}', ['as' => 'CicloviaController', 'uses' => 'CicloviaController@deletar']);
+Route::get('/', ['as' => 'CicloviaController', 'uses' => 'CicloviaController@inicio']);
+
 Route::post('/teste', function () {
-    echo $_POST['exemplo'];
+    print_r($_POST);
 });
 
 /* Route::post('/dashboard/usuario/salvarRegistroUsuario', ['as' => 'dashboard.UsuarioController.salvarRegistroUsuario', 'uses' => 'dashboard\UsuarioController@salvarRegistroUsuario']);
