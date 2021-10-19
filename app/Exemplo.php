@@ -41,7 +41,8 @@ class Exemplo extends Model
     public function composicaoPai()
     {
         return $this->hasMany(Composicao::class, 'comp_codigocomposicao', 'compins_codigocomposicao')->where('composicao.cadg_codigo',  $this->cadg_codigo);
-    } public function composicao()
+    }
+    public function composicao()
     {
         return $this->hasMany(Composicao::class, 'comp_codigocomposicao', 'compins_iteminscomp')->where('composicao.cadg_codigo',  $this->cadg_codigo);
     }
@@ -49,5 +50,18 @@ class Exemplo extends Model
     {
         return $this->hasMany(Insumo::class, 'ins_codigoinsumo', 'compins_iteminscomp')->where('insumo.cadg_codigo',  $this->cadg_codigo);
     }
+    public function composicao1()
+    {
+        return $this->hasOne('App\composicao', 'comp_codigo', 'comp_codigo');
+    }
+    protected function setKeysForSaveQuery(\Illuminate\Database\Eloquent\Builder $query)
+    {
+        return $query->where('gruplan_codigo', $this->getAttribute('gruplan_codigo'))
+            ->where('famplan_codigo', $this->getAttribute('famplan_codigo'))->where('etaplan_codigo', $this->getAttribute('etaplan_codigo'));
+    }
 
+    public function planilha()
+    {
+        return $this->belongsTo('App\Planilha', 'plan_codigo', 'plan_codigo');
+    }
 }
