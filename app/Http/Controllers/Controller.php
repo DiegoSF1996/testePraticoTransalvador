@@ -10,4 +10,18 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    function gera_obj()
+    {
+        return new class
+        {
+            function __get($nome)
+            {
+                $this->$nome = '';
+            }
+            function __set( $c, $v )
+            {
+                $this->$c = $v;
+            }
+        };
+    }
 }

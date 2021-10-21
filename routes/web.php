@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 }); */
 
-Route::post('/salvarCiclovia', ['as' => 'CicloviaController', 'uses' => 'CicloviaController@salvar']);
-Route::get('/deletar/{id?}', ['as' => 'CicloviaController', 'uses' => 'CicloviaController@deletar']);
-Route::get('/', ['as' => 'CicloviaController', 'uses' => 'CicloviaController@inicio']);
+Route::post('/ciclovia/salvar/{id?}', ['as' => 'CicloviaController.salvar', 'uses' => 'CicloviaController@salvar']);
+Route::get('/ciclovia/deletar/{id?}', ['as' => 'CicloviaController.deletar', 'uses' => 'CicloviaController@deletar']);
+Route::get('/', ['as' => 'CicloviaController.inicio', 'uses' => 'CicloviaController@inicio']);
+Route::get('/ciclovia/cadastro/{id?}', ['as' => 'CicloviaController.cadastro', 'uses' => 'CicloviaController@cadastro']);
+
+Route::get('/tipociclovia', ['as' => 'TipoCicloviaController.inicio', 'uses' => 'TipoCicloviaController@inicio']);
 
 Route::post('/teste', function () {
     print_r($_POST);

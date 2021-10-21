@@ -11,7 +11,30 @@
 </head>
 
 <body>
+
     <div id="app">
+        <nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Transalvador</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{route('CicloviaController.inicio')}}">Ciclovia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('TipoCicloviaController.inicio')}}">Tipo Ciclovia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         @yield('conteudo')
     </div>
     <!-- <script src="{{asset('js/app.js')}}"></script> -->
