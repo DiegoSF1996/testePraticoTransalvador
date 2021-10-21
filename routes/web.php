@@ -20,7 +20,12 @@ Route::get('/ciclovia/deletar/{id?}', ['as' => 'CicloviaController.deletar', 'us
 Route::get('/', ['as' => 'CicloviaController.inicio', 'uses' => 'CicloviaController@inicio']);
 Route::get('/ciclovia/cadastro/{id?}', ['as' => 'CicloviaController.cadastro', 'uses' => 'CicloviaController@cadastro']);
 
+
+Route::post('/tipociclovia/salvar/{id?}', ['as' => 'TipoCicloviaController.salvar', 'uses' => 'TipoCicloviaController@salvar']);
+Route::get('/tipociclovia/deletar/{id?}', ['as' => 'TipoCicloviaController.deletar', 'uses' => 'TipoCicloviaController@deletar']);
 Route::get('/tipociclovia', ['as' => 'TipoCicloviaController.inicio', 'uses' => 'TipoCicloviaController@inicio']);
+Route::get('/tipociclovia/cadastro/{id?}', ['as' => 'TipoCicloviaController.cadastro', 'uses' => 'TipoCicloviaController@cadastro']);
+
 
 Route::post('/teste', function () {
     print_r($_POST);
